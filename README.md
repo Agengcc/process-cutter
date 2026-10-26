@@ -1,6 +1,10 @@
-# process-cutter 工序剪辑
+<p align="right"><a href="#english">English</a></p>
 
-把一堆手机拍的“制作过程”原素材交给 AI Agent，剪成一条竖屏短视频：从材料到成品，每一步都看得见变化。
+<p align="center">
+  <img src="./assets/readme/hero.svg" width="100%" alt="process-cutter：把制作过程的原素材剪成竖屏短视频。示意时间轴来自一次真实剪辑：21 段原素材共 11.5 分钟，选出 27 段，成片 80 秒。">
+</p>
+
+**process-cutter（工序剪辑）** 是一个 Agent Skill，Claude Code、Codex 都能用。把一堆手机拍的“制作过程”原素材交给 Agent，它会逐段看画面、找工序、定切点，剪成一条竖屏短视频：从材料到成品，每一步都看得见变化。你只需要说一句“帮我把这个文件夹剪成视频”。
 
 ## 适合剪什么
 
@@ -13,25 +17,33 @@
 
 不适合：口播、vlog、旅行、开箱测评、运动、屏幕录制教程——它们靠讲话或叙事组织，不是靠工序。
 
-它是一个 Agent Skill（Claude Code、Codex 都能用）：Agent 按手册看画面、找工序、选切点，用脚本导出成片和检查图；你只需要说一句“帮我把这个文件夹剪成视频”。
+## 它怎么工作
 
-## 能做什么
+<p align="center">
+  <img src="./assets/readme/workflow.svg" width="100%" alt="六步工作流：看图测验、看素材、选片定切点、排序出片、检查交付、配音（可选）；第5、6步需要你参与。">
+</p>
 
-- **画面剪辑（主线）**：识别工序，逐段看图确认动作有实际结果再保留，剪掉长停顿、保留自然短衔接；开头默认放最好看的成品镜头（Agent 会在交付说明里告诉你它选了哪个开头，你可以改）。
-- **两种剪法**：标准模式（默认）；精剪模式（多保留细节、切点更细，说“精剪”即可）。
-- **交付物**：选片表、选片对照图（每个镜头3张原帧＋写明的有效动作）、可编辑工程 `project.json`、静音竖屏成片；给了 BGM 可直接出含配乐版。
-- **配音（可选）**：先从原声和画面整理事实卡（不编造），按画面写“一句一个完整短句”的配音脚本，经你确认后逐句调用配音接口合成、量时长，再出含配音和字幕的成片。自带火山引擎（豆包语音）接入，也能接任何“读文案文件→写音频文件”的命令。
-- **原声模式（可选，默认关闭）**：素材里有人讲话时，用本机 Whisper 转写，挑出说完整、没被截断的句子保留原声。较吃电脑，开启前 Agent 会先问你。
+1. **看图测验**：Agent 先读出一张随机图片里的数字和颜色。读不出就停下，说明当前模型或环境看不到画面，换一个能看图的模型再来。
+2. **看素材**：把每段素材抽帧成总览图，记下拍了哪些工序、哪些画面糊了或重复；手机 HDR 素材会先转成普通格式，避免剪出来发灰。
+3. **选片定切点**：逐段看图，只保留动作真正产生结果的部分，剪掉长停顿，保留1秒左右的自然衔接，每段都写进选片表（源文件、入出点、看到的动作）。
+4. **排顺序、出片**：默认成品开头，按真实制作顺序排，导出静音竖屏成片；给了配乐就再出一版含配乐的。
+5. **检查和交付**：做技术检查和剪接点抽图检查，生成选片对照图。**你要做的：先扫一眼选片对照图**，文字和画面对不上，说明模型没看清。想换开头或改哪一段，直接告诉 Agent，它改选片表后重新出片。
+6. **配音（可选）**：画面确认后才开始。配音脚本先给你看，你确认后才调用配音接口。
 
-## 需要什么
+### 标准和精剪
 
-- [FFmpeg](https://ffmpeg.org/)（含 ffprobe）
-- Python 3.9+，以及 `pip install pillow numpy`
-- **能看图的模型**。剪辑前 Agent 必须先通过一个“看图校验”（读出一张随机图片里的数字和颜色），看不了图的模型不让进入剪辑。
-- 配音：火山引擎账号和密钥，或你自己的配音命令（见下文）
-- 原声模式：Apple Silicon Mac 上的 `mlx-whisper`、`zhconv`（推荐用 `uv run --with mlx-whisper --with zhconv ...` 临时安装）
+两种都直接出可以发布的完整成片，不是“先粗剪再精修”。
 
-## 安装
+| | 标准（默认） | 精剪 |
+|---|---|---|
+| 怎么开启 | 直接说“剪这个文件夹” | 说“精剪”“细节多一些”“切点仔细一点” |
+| 选什么 | 主要工序，每道选一段代表性的完整动作 | 再加有独立变化的细节（如刷毛、压纹、勾线），每段说明让观众多看懂什么 |
+| 怎么检查 | 普通段3帧/秒看完整过程 | 每段首尾再用10帧/秒复核，细节全程看局部放大图 |
+| 例子 | 两猫蛋糕：13个镜头、56秒 | 同一份素材：19个镜头、84秒 |
+
+精剪更慢，片子通常也更长；适合细节本身就是看点的作品。两种模式另存不同目录，不会互相覆盖。
+
+## 安装和开始
 
 ```bash
 git clone https://github.com/Agengcc/process-cutter.git ~/.agents/skills/process-cutter
@@ -47,6 +59,22 @@ mkdir -p ~/.codex/skills && ln -s ~/.agents/skills/process-cutter ~/.codex/skill
 > 用 process-cutter 把 `~/Videos/2026-10-14` 里的素材剪成竖屏视频。
 
 原素材只读，所有输出放在素材文件夹下的 `edit/`。
+
+## 交付什么
+
+- **选片对照图**：每个镜头3张原帧＋写明的有效动作，交付时最先给你看。
+- **选片表**和**可编辑工程** `project.json`：想改哪段，改选片表重新出片。
+- **静音竖屏成片**（1080×1920）；给了 BGM 就再出一版含配乐的。
+- **配音（可选）**：先从原声和画面整理事实卡（不编造），按画面写“一句一个完整短句”的配音脚本，经你确认后逐句调用配音接口合成、量时长，再出含配音和字幕的成片。自带火山引擎（豆包语音）接入，也能接任何“读文案文件→写音频文件”的命令。
+- **原声模式（可选，默认关闭）**：素材里有人讲话时，用本机 Whisper 转写，挑出说完整、没被截断的句子保留原声。较吃电脑，开启前 Agent 会先问你。
+
+## 需要什么
+
+- [FFmpeg](https://ffmpeg.org/)（含 ffprobe）
+- Python 3.9+，以及 `pip install pillow numpy`
+- **能看图的模型**。剪辑前 Agent 必须先通过一个“看图校验”（读出一张随机图片里的数字和颜色），看不了图的模型不让进入剪辑。
+- 配音：火山引擎账号和密钥，或你自己的配音命令（见下文）
+- 原声模式：Apple Silicon Mac 上的 `mlx-whisper`、`zhconv`（推荐用 `uv run --with mlx-whisper --with zhconv ...` 临时安装）
 
 ## 配音：接火山引擎（豆包语音）
 
@@ -121,6 +149,8 @@ MIT
 ## English
 
 **process-cutter** is an agent skill (Claude Code / Codex) that turns raw phone-shot "making-of" footage — cake decorating, cooking and baking, crafts such as clay, painting, knitting or model building, and restoration work — into a vertical short video. The agent inspects frames to find each step and keeps only shots where the action visibly produces a result, trims long pauses, and picks the best finished-product shot as the opening. It delivers a shot list, contact sheets, an editable `project.json`, and a silent (or BGM) vertical cut.
+
+Workflow: vision probe (stops if the model cannot see images) → frame overviews of every clip → pick shots and cut points by looking at frames → order by the real making sequence, finished product first → render, technical and visual checks, contact sheets for you to review. Two modes: standard (default, main steps) and fine cut (more distinct details, denser boundary checks); both produce a finished video, not a rough cut.
 
 Optional: fact-checked voiceover (script → user review → per-sentence TTS, with a built-in Volcengine/Doubao TTS adapter or any command that reads a text file and writes an audio file), and an opt-in native-speech mode using local Whisper.
 
