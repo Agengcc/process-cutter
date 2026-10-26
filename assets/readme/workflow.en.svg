@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="470" viewBox="0 0 1200 470" role="img" aria-labelledby="title desc">
+<title id="title">Six steps with process-cutter</title>
+<desc id="desc">Vision check, inspect footage, select shots and cuts, arrange and render, review, and optional voiceover. Steps 5 and 6 need your input.</desc>
+<rect width="1200" height="470" rx="24" fill="#F6F1E7"/>
+<g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif">
+<text x="64" y="50" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18" letter-spacing="2" fill="#7D7468">HOW IT WORKS</text>
+<rect x="64" y="74" width="344" height="172" rx="14" fill="#FFFDF8" stroke="#DDD5C7" stroke-width="1.5"/>
+<text x="88" y="124" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E2532D">[01]</text>
+<text x="164" y="123" font-size="25" font-weight="700" fill="#1E1A16">Vision check</text>
+<text x="88" y="172" font-size="17" fill="#7D7468">Read the test digits and color</text>
+<text x="88" y="206" font-size="17" fill="#7D7468">Cannot see them? Switch models.</text>
+<rect x="438" y="74" width="344" height="172" rx="14" fill="#FFFDF8" stroke="#DDD5C7" stroke-width="1.5"/>
+<text x="462" y="124" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E2532D">[02]</text>
+<text x="538" y="123" font-size="25" font-weight="700" fill="#1E1A16">Inspect footage</text>
+<text x="462" y="172" font-size="17" fill="#7D7468">Extract overviews from every clip</text>
+<text x="462" y="206" font-size="17" fill="#7D7468">Note steps, blur, and duplicates</text>
+<rect x="812" y="74" width="344" height="172" rx="14" fill="#FFFDF8" stroke="#DDD5C7" stroke-width="1.5"/>
+<text x="836" y="124" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E2532D">[03]</text>
+<text x="912" y="123" font-size="25" font-weight="700" fill="#1E1A16">Pick shots &amp; cuts</text>
+<text x="836" y="172" font-size="17" fill="#7D7468">Keep actions with visible results</text>
+<text x="836" y="206" font-size="17" fill="#7D7468">Trim long pauses; keep short ones</text>
+<rect x="64" y="272" width="344" height="172" rx="14" fill="#FFFDF8" stroke="#DDD5C7" stroke-width="1.5"/>
+<text x="88" y="322" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E2532D">[04]</text>
+<text x="164" y="321" font-size="25" font-weight="700" fill="#1E1A16">Arrange &amp; render</text>
+<text x="88" y="370" font-size="17" fill="#7D7468">Result first, real sequence next</text>
+<text x="88" y="404" font-size="17" fill="#7D7468">Silent vertical cut; music optional</text>
+<rect x="438" y="272" width="344" height="172" rx="14" fill="#FFFDF8" stroke="#E2532D" stroke-width="2.5"/>
+<text x="462" y="322" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E2532D">[05]</text>
+<text x="538" y="321" font-size="25" font-weight="700" fill="#1E1A16">Review</text>
+<text x="462" y="370" font-size="17" fill="#7D7468">Technical checks and cut frames</text>
+<text x="462" y="404" font-size="17" fill="#1E1A16" font-weight="600">You review the comparison sheets</text>
+<rect x="684" y="296" width="76" height="32" rx="16" fill="#F4C6B5"/>
+<text x="722" y="318" font-size="13" font-weight="600" fill="#1E1A16" text-anchor="middle">Your input</text>
+<rect x="812" y="272" width="344" height="172" rx="14" fill="#FFFDF8" stroke="#E2532D" stroke-width="2.5"/>
+<text x="836" y="322" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="700" fill="#E2532D">[06]</text>
+<text x="912" y="321" font-size="25" font-weight="700" fill="#1E1A16">Voiceover</text>
+<text x="836" y="370" font-size="17" fill="#7D7468">Optional, after visual approval</text>
+<text x="836" y="404" font-size="17" fill="#1E1A16" font-weight="600">Approve the script before synthesis</text>
+<rect x="1058" y="296" width="76" height="32" rx="16" fill="#F4C6B5"/>
+<text x="1096" y="318" font-size="13" font-weight="600" fill="#1E1A16" text-anchor="middle">Your input</text>
+</g></svg>

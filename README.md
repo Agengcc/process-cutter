@@ -1,4 +1,4 @@
-<p align="right"><a href="#english">English</a></p>
+<p align="right"><strong>简体中文</strong> · <a href="./README.en.md">English</a></p>
 
 <p align="center">
   <img src="./assets/readme/hero.svg" width="100%" alt="process-cutter：把制作过程的原素材剪成竖屏短视频。示意时间轴来自一次真实剪辑：21 段原素材共 11.5 分钟，选出 27 段，成片 80 秒。">
@@ -143,15 +143,3 @@ python3 scripts/benchmark.py score 我的评测/葱姜鸡/answer.json 素材/edi
 ## License
 
 MIT
-
----
-
-## English
-
-**process-cutter** is an agent skill (Claude Code / Codex) that turns raw phone-shot "making-of" footage — cake decorating, cooking and baking, crafts such as clay, painting, knitting or model building, and restoration work — into a vertical short video. The agent inspects frames to find each step and keeps only shots where the action visibly produces a result, trims long pauses, and picks the best finished-product shot as the opening. It delivers a shot list, contact sheets, an editable `project.json`, and a silent (or BGM) vertical cut.
-
-Workflow: vision probe (stops if the model cannot see images) → frame overviews of every clip → pick shots and cut points by looking at frames → order by the real making sequence, finished product first → render, technical and visual checks, contact sheets for you to review. Two modes: standard (default, main steps) and fine cut (more distinct details, denser boundary checks); both produce a finished video, not a rough cut.
-
-Optional: fact-checked voiceover (script → user review → per-sentence TTS, with a built-in Volcengine/Doubao TTS adapter or any command that reads a text file and writes an audio file), and an opt-in native-speech mode using local Whisper.
-
-Requires FFmpeg, Python 3 with Pillow and NumPy, and a vision-capable model (a vision probe gates editing). Tested on macOS with cake and cooking footage only; other crafts follow the general rules but are not yet verified. Docs are in Chinese. MIT licensed.
