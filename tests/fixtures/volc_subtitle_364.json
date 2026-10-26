@@ -1,0 +1,88 @@
+{
+ "_note": "2026-10-26 真实 WebSocket 返回（audio_params 加 enable_subtitle/enable_timestamp），事件 364 TTSSubtitle 的载荷；单位秒，标点粘在前一个字上。音频总长 4.248 秒。",
+ "event": 364,
+ "payload": {
+  "phonemes": [],
+  "text": "鸡块先加生抽和生粉，用手抓匀。",
+  "words": [
+   {
+    "confidence": 0.75671625,
+    "endTime": 0.245,
+    "startTime": 0,
+    "word": "鸡"
+   },
+   {
+    "confidence": 0.8487959,
+    "endTime": 0.605,
+    "startTime": 0.245,
+    "word": "块"
+   },
+   {
+    "confidence": 0.8199567,
+    "endTime": 0.895,
+    "startTime": 0.605,
+    "word": "先"
+   },
+   {
+    "confidence": 0.94827217,
+    "endTime": 1.135,
+    "startTime": 0.895,
+    "word": "加"
+   },
+   {
+    "confidence": 0.7828347,
+    "endTime": 1.475,
+    "startTime": 1.135,
+    "word": "生"
+   },
+   {
+    "confidence": 0.88853675,
+    "endTime": 1.765,
+    "startTime": 1.475,
+    "word": "抽"
+   },
+   {
+    "confidence": 0.94891423,
+    "endTime": 1.955,
+    "startTime": 1.765,
+    "word": "和"
+   },
+   {
+    "confidence": 0.8440816,
+    "endTime": 2.225,
+    "startTime": 1.955,
+    "word": "生"
+   },
+   {
+    "confidence": 0.85314447,
+    "endTime": 2.665,
+    "startTime": 2.225,
+    "word": "粉，"
+   },
+   {
+    "confidence": 0.81452554,
+    "endTime": 3.055,
+    "startTime": 2.825,
+    "word": "用"
+   },
+   {
+    "confidence": 0.8222233,
+    "endTime": 3.355,
+    "startTime": 3.055,
+    "word": "手"
+   },
+   {
+    "confidence": 0.8172597,
+    "endTime": 3.685,
+    "startTime": 3.355,
+    "word": "抓"
+   },
+   {
+    "confidence": 0.57574165,
+    "endTime": 3.765,
+    "startTime": 3.685,
+    "word": "匀。"
+   }
+  ]
+ }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "示例（假数据）",
+  "source": "虚构的三段素材，仅供测试和看格式",
+  "note": "成品近景开头；打底、抹面、点眼三道工序都在，切点干净。",
+  "tolerance": 0.5,
+  "media": [
+    {"file": "A.MOV", "duration": 20.0},
+    {"file": "B.MOV", "duration": 15.0},
+    {"file": "C.MOV", "duration": 10.0}
+  ],
+  "steps": [
+    {"name": "白奶油打底", "file": "A.MOV", "in": 2.0, "out": 8.0, "required": true},
+    {"name": "刮板抹平", "file": "A.MOV", "in": 10.0, "out": 14.0, "required": true},
+    {"name": "点眼睛", "file": "B.MOV", "in": 3.0, "out": 6.0, "required": true},
+    {"name": "补毛细节（精剪才有）", "file": "B.MOV", "in": 8.0, "out": 11.0, "required": false}
+  ],
+  "opening": [{"file": "C.MOV"}],
+  "shot_count": [3, 6],
+  "duration": [8, 20]
+}
